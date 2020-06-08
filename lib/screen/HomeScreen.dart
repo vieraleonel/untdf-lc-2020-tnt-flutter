@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turismo_tnt_alumnos/LoginPage.dart';
 import 'package:turismo_tnt_alumnos/screen/InheretedWidgetDemoScreen.dart';
+import 'package:turismo_tnt_alumnos/screen/StreamDemoScreen.dart';
 import 'ApiClasicoScreen.dart';
 import 'ApiFutureBuilder.dart';
 
@@ -52,6 +53,13 @@ class HomeScreen extends StatelessWidget {
               onPressed: goTo(InheretedWidgetDemoScreen.ROUTE_NAME),
               padding: EdgeInsets.all(10),
               child: Text('Inhereted Widget',
+                  style: TextStyle(fontSize: 20, color: Colors.white)),
+            ),
+            RaisedButton(
+              color: Colors.indigo,
+              onPressed: goTo(StreamDemoScreen.ROUTE_NAME),
+              padding: EdgeInsets.all(10),
+              child: Text('Stream',
                   style: TextStyle(fontSize: 20, color: Colors.white)),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:turismo_tnt_alumnos/screen/StreamDemoScreen.dart';
 import 'screen/HomeScreen.dart';
 import 'TravelPage.dart';
 import 'AlojamientosPage.dart';
@@ -12,6 +13,7 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   ApiClasicoScreen.ROUTE_NAME: (BuildContext context) => ApiClasicoScreen(),
   ApiFutureBuilder.ROUTE_NAME: (BuildContext context) => ApiFutureBuilder(),
   InheretedWidgetDemoScreen.ROUTE_NAME: (BuildContext context) => InheretedWidgetDemoScreen(),
+  StreamDemoScreen.ROUTE_NAME: (BuildContext context) => StreamDemoScreen(),
   LoginPage.ROUTE_NAME: (BuildContext context) => LoginPage(),
   TravelPage.ROUTE_NAME: (BuildContext context) => TravelPage(),
   AlojamientosPage.ROUTE_NAME: (BuildContext context) => AlojamientosPage(),

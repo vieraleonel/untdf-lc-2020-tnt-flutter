@@ -6,6 +6,9 @@ class InheretedWidgetDemoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Inhereted Widget'),
+      ),
       body: InheretedWidgetDemo(
         child: InheretedWidgetDemoScreenInner1(),
       ),
