@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:turismo_tnt_alumnos/models/Alojamiento.dart';
+import 'package:turismo_tnt_alumnos/data/models/Alojamiento.dart';
 
 class ApiClasicoScreen extends StatefulWidget {
   static const ROUTE_NAME = '/api-clasico';

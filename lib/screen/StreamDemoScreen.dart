@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:turismo_tnt_alumnos/models/Alojamiento.dart';
+import 'package:turismo_tnt_alumnos/data/models/Alojamiento.dart';
 
 class StreamDemoScreen extends StatefulWidget {
   static const ROUTE_NAME = '/stream-demo';
@@ -15,15 +15,19 @@ class StreamDemoScreen extends StatefulWidget {
 class _StreamDemoScreen extends State<StreamDemoScreen> {
   StreamController<List<Alojamiento>> _alojamientosSC;
   int offset = 0;
+  List<Alojamiento> lista = new List();
 
   void _fetchData() async {
-    final response = await http.get("http://192.168.1.10:3000/alojamientos?limit=2&offset=${offset}");
+    final response = await http
+        .get("http://192.168.1.10:3000/alojamientos?limit=2&offset=${offset}");
     if (response.statusCode == 200) {
       List<Alojamiento> data = (json.decode(response.body) as List)
           .map((item) => new Alojamiento.fromJson(item))
           .toList();
-      _alojamientosSC.add(data);
-      offset++;
+      lista.addAll(data);
+      _alojamientosSC.add(lista);
+      //_alojamientosSC.addError("Error");
+      offset += 2;
     } else {
       throw Exception('Failed to load alojamientos');
     }
@@ -31,7 +35,6 @@ class _StreamDemoScreen extends State<StreamDemoScreen> {
 
   @override
   void initState() {
-    super.initState();
     _alojamientosSC = new StreamController();
     _fetchData();
     super.initState();
@@ -45,12 +48,16 @@ class _StreamDemoScreen extends State<StreamDemoScreen> {
         ),
         body: Column(
           children: <Widget>[
-            RaisedButton(onPressed: _fetchData, child: Text('perdir más'),),
+            RaisedButton(
+              onPressed: _fetchData,
+              child: Text('perdir más'),
+            ),
             Expanded(
-                          child: Container(
+              child: Container(
                 child: StreamBuilder(
                     stream: _alojamientosSC.stream,
-                    builder: (BuildContext context, AsyncSnapshot<List<Alojamiento>> snapshot) {
+                    builder: (BuildContext context,
+                        AsyncSnapshot<List<Alojamiento>> snapshot) {
                       if (snapshot.hasError) {
                         return Text("${snapshot.error}");
                       } else if (snapshot.hasData) {

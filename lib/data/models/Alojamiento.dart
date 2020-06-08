@@ -49,15 +49,8 @@ class Alojamiento extends Equatable {
 
   @override
   // TODO: implement props
-  List<Object> get props => [
-    id, 
-    nombre, 
-    domicilio, 
-    lat, 
-    lng, 
-    foto, 
-    clasificacionId, 
-    categoriaId, 
-    localidadId, 
-  ];
+  List<Object> get props => [id];
+
+  @override
+  String toString() => this.nombre;
 }

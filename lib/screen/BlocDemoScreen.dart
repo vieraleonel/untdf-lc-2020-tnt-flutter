@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:turismo_tnt_alumnos/bloc/alojamientos/alojamiento_bloc.dart';
-import 'package:turismo_tnt_alumnos/bloc/alojamientos/alojamiento_event.dart';
-import 'package:turismo_tnt_alumnos/bloc/alojamientos/alojamiento_state.dart';
-import 'package:turismo_tnt_alumnos/models/Alojamiento.dart';
+import 'package:turismo_tnt_alumnos/bloc/alojamiento/alojamiento_bloc.dart';
+import 'package:turismo_tnt_alumnos/bloc/alojamiento/alojamiento_event.dart';
+import 'package:turismo_tnt_alumnos/bloc/alojamiento/alojamiento_state.dart';
+import 'package:turismo_tnt_alumnos/data/models/Alojamiento.dart';
 
 class BlocDemoScreen extends StatelessWidget {
   static const ROUTE_NAME = '/bloc-demo';
@@ -31,7 +31,7 @@ class BlocDemoUI extends StatefulWidget {
 
 class _BlocDemoUIState extends State<BlocDemoUI> {
   final _scrollController = ScrollController();
-  final _scrollThreshold = 200.0;
+  final _scrollThreshold = 1.0;
   AlojamientoBloc _alojamientoBloc;
 
   @override
@@ -62,12 +62,11 @@ class _BlocDemoUIState extends State<BlocDemoUI> {
                   ? BottomLoader()
                   : AlojamientoWidget(alojamiento: state.alojamientos[index]);
             },
-            itemCount: state.hasReachedMax
-                ? state.alojamientos.length
-                : state.alojamientos.length + 1,
+            itemCount: state.alojamientos.length + 1,
             controller: _scrollController,
           );
         }
+
         return Center(
           child: CircularProgressIndicator(),
         );
@@ -84,7 +83,6 @@ class _BlocDemoUIState extends State<BlocDemoUI> {
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
-    print(maxScroll);
     if (maxScroll - currentScroll <= _scrollThreshold) {
       _alojamientoBloc.add(AlojamientoFetched());
     }

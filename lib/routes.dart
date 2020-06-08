@@ -3,7 +3,6 @@ import 'package:turismo_tnt_alumnos/screen/BlocDemoScreen.dart';
 import 'package:turismo_tnt_alumnos/screen/StreamDemoScreen.dart';
 import 'screen/HomeScreen.dart';
 import 'TravelPage.dart';
-import 'AlojamientosPage.dart';
 import 'LoginPage.dart';
 import 'screen/ApiClasicoScreen.dart';
 import 'screen/ApiFutureBuilder.dart';
@@ -18,5 +17,4 @@ final Map<String, WidgetBuilder> routes = <String, WidgetBuilder>{
   BlocDemoScreen.ROUTE_NAME: (BuildContext context) => BlocDemoScreen(),
   LoginPage.ROUTE_NAME: (BuildContext context) => LoginPage(),
   TravelPage.ROUTE_NAME: (BuildContext context) => TravelPage(),
-  AlojamientosPage.ROUTE_NAME: (BuildContext context) => AlojamientosPage(),
 };
