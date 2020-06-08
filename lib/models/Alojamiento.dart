@@ -1,4 +1,6 @@
-class Alojamiento {
+import 'package:equatable/equatable.dart';
+
+class Alojamiento extends Equatable {
     int id;
     String nombre;
     String domicilio;
@@ -44,4 +46,18 @@ class Alojamiento {
         "categoria_id": categoriaId,
         "localidad_id": localidadId,
     };
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [
+    id, 
+    nombre, 
+    domicilio, 
+    lat, 
+    lng, 
+    foto, 
+    clasificacionId, 
+    categoriaId, 
+    localidadId, 
+  ];
 }
