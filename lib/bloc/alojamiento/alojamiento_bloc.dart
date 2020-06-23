@@ -46,7 +46,7 @@ class AlojamientoBloc extends Bloc<AlojamientoEvent, AlojamientoState> {
 
 
   Future<List<Alojamiento>> _fetchAlojamientos(int offset, int limit) async {
-    final response = await http.get("http://192.168.1.10:3000/alojamientos?offset=${offset}&limit=${limit}");
+    final response = await http.get("http://192.168.1.10:3000/alojamientos?offset=$offset&limit=$limit");
     if (response.statusCode == 200) {
       return (json.decode(response.body) as List)
           .map((item) => new Alojamiento.fromJson(item))

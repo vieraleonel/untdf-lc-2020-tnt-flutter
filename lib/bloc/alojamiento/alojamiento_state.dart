@@ -3,6 +3,7 @@ import 'package:turismo_tnt_alumnos/data/models/Alojamiento.dart';
 
 abstract class AlojamientoState extends Equatable {
   const AlojamientoState();
+  
 
   @override
   List<Object> get props => [];

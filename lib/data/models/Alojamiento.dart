@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 
 class Alojamiento extends Equatable {
-    int id;
-    String nombre;
-    String domicilio;
-    double lat;
-    double lng;
-    String foto;
-    int clasificacionId;
-    int categoriaId;
-    int localidadId;
+    final int id;
+    final String nombre;
+    final String domicilio;
+    final double lat;
+    final double lng;
+    final String foto;
+    final int clasificacionId;
+    final int categoriaId;
+    final int localidadId;
 
     Alojamiento({
         this.id,

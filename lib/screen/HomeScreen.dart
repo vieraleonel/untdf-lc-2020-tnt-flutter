@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:turismo_tnt_alumnos/LoginPage.dart';
 import 'package:turismo_tnt_alumnos/screen/BlocDemoScreen.dart';
+import 'package:turismo_tnt_alumnos/screen/GraphqlBuilderScreen.dart';
 import 'package:turismo_tnt_alumnos/screen/InheretedWidgetDemoScreen.dart';
+import 'package:turismo_tnt_alumnos/screen/SharedPreferencesBlocDemoScreen.dart';
 import 'package:turismo_tnt_alumnos/screen/StreamDemoScreen.dart';
 import 'ApiClasicoScreen.dart';
 import 'ApiFutureBuilder.dart';
@@ -44,13 +46,6 @@ class HomeScreen extends StatelessWidget {
             ),
             RaisedButton(
               color: Colors.indigo,
-              onPressed: goTo(LoginPage.ROUTE_NAME),
-              padding: EdgeInsets.all(10),
-              child: Text('API Bloc',
-                  style: TextStyle(fontSize: 20, color: Colors.white)),
-            ),
-            RaisedButton(
-              color: Colors.indigo,
               onPressed: goTo(InheretedWidgetDemoScreen.ROUTE_NAME),
               padding: EdgeInsets.all(10),
               child: Text('Inhereted Widget',
@@ -68,6 +63,20 @@ class HomeScreen extends StatelessWidget {
               onPressed: goTo(BlocDemoScreen.ROUTE_NAME),
               padding: EdgeInsets.all(10),
               child: Text('Bloc',
+                  style: TextStyle(fontSize: 20, color: Colors.white)),
+            ),
+            RaisedButton(
+              color: Colors.indigo,
+              onPressed: goTo(SharedPreferencesBlocDemoScreen.ROUTE_NAME),
+              padding: EdgeInsets.all(10),
+              child: Text('Peristencia Shared Preferences',
+                  style: TextStyle(fontSize: 20, color: Colors.white)),
+            ),
+            RaisedButton(
+              color: Colors.indigo,
+              onPressed: goTo(GraphqlBuilderScreen.ROUTE_NAME),
+              padding: EdgeInsets.all(10),
+              child: Text('GraphQL Builder',
                   style: TextStyle(fontSize: 20, color: Colors.white)),
             ),
           ],

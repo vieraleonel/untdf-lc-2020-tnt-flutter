@@ -19,7 +19,7 @@ class _StreamDemoScreen extends State<StreamDemoScreen> {
 
   void _fetchData() async {
     final response = await http
-        .get("http://192.168.1.10:3000/alojamientos?limit=2&offset=${offset}");
+        .get("http://192.168.1.10:3000/alojamientos?limit=2&offset=$offset");
     if (response.statusCode == 200) {
       List<Alojamiento> data = (json.decode(response.body) as List)
           .map((item) => new Alojamiento.fromJson(item))
